@@ -54,14 +54,15 @@ Tree.prototype.contains = function (value) {
   'one'
 */
 Tree.prototype.traverseDF = function (callback) {
-  
   function traverse (node) {
     _.each(node.children, (child, idx) => {
+      // 2) recurse on each child
       traverse(child)
     })
+    // 3) call on current node (this is going to happen last)
     callback(node)
   }
-
+  // 1) traverse node beeing called
   traverse(this)
 }
 
@@ -86,21 +87,23 @@ Tree.prototype.traverseDF = function (callback) {
  */
 
 Tree.prototype.traverseBF = function (callback) {
-
+  
   function traverseChildren(node) {
+    // push each child of the node to the store
     _.each(node.children, child => {
       store.push(child)
     })
+    // call the callback on current node
     callback(currentNode)
-    currentNode = store.shift()
+    currentNode = store.shift() // set current node and remove it from the store
   }
 
   let store = []
-  store.push(this)
-  currentNode = store.shift()
-
+  store.push(this) // push the current node to the store
+  currentNode = store.shift() // current node is the first element of the array array is now empty but action is triggered on while
+  // when store has shifted all the nodes currentNode is undefined
   while (currentNode) {
-    traverseChildren(currentNode)
+    traverseChildren(currentNode) // first node is called 
   }
 }
 
