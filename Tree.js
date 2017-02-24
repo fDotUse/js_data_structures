@@ -1,5 +1,4 @@
-var Tree = function (value, parent) {
-  this.parent = parent || null
+var Tree = function (value) {
   this.value = value
   this.children = []
 }
@@ -113,4 +112,4 @@ Tree.prototype.traverseBF = function (callback) {
   tree.children[0].add(5)
   tree.children[0].add(6)
   tree.children[2].add(7)
-  console.log('This is The Tree', tree)
+  // console.log('This is The Tree', tree)
