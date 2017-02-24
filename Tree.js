@@ -44,17 +44,16 @@ Tree.prototype.contains = function (value) {
  └── four
      └── seven
 
-logs the following strings to the console
- 
-'five'
-'six'
-'two'
-'three'
-'seven'
-'four'
-'one'
+  logs the following strings to the console
+  
+  'five'
+  'six'
+  'two'
+  'three'
+  'seven'
+  'four'
+  'one'
 */
-
 Tree.prototype.traverseDF = function (callback) {
   
   function traverse (node) {
@@ -78,13 +77,13 @@ Tree.prototype.traverseDF = function (callback) {
      └── seven (depth: 2)
 
  logs the following strings to the console
-'one'
-'two'
-'three'
-'four'
-'five'
-'six'
-'seven'
+  'one'
+  'two'
+  'three'
+  'four'
+  'five'
+  'six'
+  'seven'
  */
 
 Tree.prototype.traverseBF = function (callback) {
@@ -106,12 +105,12 @@ Tree.prototype.traverseBF = function (callback) {
   }
 }
 
-let tree = new Tree(1)
-tree.add(2)
-tree.add(3)
-tree.add(4)
-tree.children[0].add(5)
-tree.children[0].add(6)
-tree.children[2].add(7)
-
-console.log('This is The Tree', tree)
+// creating tree
+  let tree = new Tree(1)
+  tree.add(2)
+  tree.add(3)
+  tree.add(4)
+  tree.children[0].add(5)
+  tree.children[0].add(6)
+  tree.children[2].add(7)
+  console.log('This is The Tree', tree)
